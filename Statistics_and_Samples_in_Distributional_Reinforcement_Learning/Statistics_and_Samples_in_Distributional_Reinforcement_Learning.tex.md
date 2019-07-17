@@ -204,3 +204,4 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * Inputation 전략은 매우 다양한 통계치에 적용될 수 있는 가능성이 있다.
 * 벨만 닫힘(Bellman closedness)성이 없는 방법들은 측정에 작지 않은 오차를 포함하게 된다는 것을 밝혀냈다.
 * 향후에는 implicit qunatile network (Dabney et al., 2018)와 같은 많은 퀀타일을 사용하는 방법에도 적용하여 연구할 것이다.
+test
