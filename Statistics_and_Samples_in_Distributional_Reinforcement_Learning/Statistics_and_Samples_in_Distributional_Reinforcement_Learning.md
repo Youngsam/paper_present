@@ -97,7 +97,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 
 ### 3.2 Imputation strategies
 * 만일 모든 각 다음 상태-행위 쌍 *(x',a')* 에 대한 총 보상기대 분포 추정치인 <img src="http://latex.codecogs.com/gif.latex?%5Ceta%28x%27%2Ca%27%29">에 접근 가능하다면, 샘플과 통계치 간의 얽힘(conflation)을 피할 수 있다.
-* 이 연구에서 취하는 방법은 중간단계를 추가해서 각 상태-행위 쌍에 대한 측정된 통계치를 정합적인(consistent) 분포, $\eta(x',a')$로 변환하는 것이다.
+* 이 연구에서 취하는 방법은 중간단계를 추가해서 각 상태-행위 쌍에 대한 측정된 통계치를 정합적인(consistent) 분포, <img src="/Statistics_and_Samples_in_Distributional_Reinforcement_Learning/tex/39fb0aaa1bdcecc3a2ab60b2ba218bb6.svg?invert_in_darkmode&sanitize=true" align=middle width=56.15114504999998pt height=24.7161288pt/>로 변환하는 것이다.
 
 <p align="center">
 <img src="http://latex.codecogs.com/gif.latex?%5Clarge%20%5Chat%7Bs%7D_k%28x%2Ca%29%5Cleftarrow%20s_k%28%28T%5E%5Cpi%20%5Ceta%29%28x%2Ca%29%29%20%5Cquad%5Cquad%20%286%29">
@@ -157,7 +157,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 <img src="fig_3.PNG">
 </p>
 
-* 이 환경에서 각 상태는 0.95의 확률로 오른쪽으로 이동하거나 0.05의 확률로 $x_0$으로 갈 수 있다.
+* 이 환경에서 각 상태는 0.95의 확률로 오른쪽으로 이동하거나 0.05의 확률로 <img src="/Statistics_and_Samples_in_Distributional_Reinforcement_Learning/tex/e714a3139958da04b41e3e607a544455.svg?invert_in_darkmode&sanitize=true" align=middle width=15.94753544999999pt height=14.15524440000002pt/>으로 갈 수 있다.
 * 가장 왼쪽의 상태에 가게되면 보상값은 -1을 받게 되고, 가장 우편의 상태는 +1을, 그 외에는 0의 보상값을 받게 된다. 보상값 감쇄율은 0.99를 사용했다.
 * 이 문제에서 각 상태에서 최적 policy(항상 우향인)인 정책의 기대보상 분포를 계산하였다. 이 환경에서 어떤 상태의 거리가 목표지점과 멀면 멀수록 그 상태에 대한 policy의 기대보상 분포는 multi-modal 형태를 띠게 된다.
 * EDRL 조건에서 SciPy 최적화 루틴을 사용하였고, {1,3,5,7,9} expectile을 학습시켰다. 러닝레이트는 0.05, 학습단계 수는 3만이었다.
@@ -184,7 +184,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 
 ### 5.2 Tabular control
 * 그림 7a에서 제시된 간단한 5-상태 MDP 문제를 통해 policy가 직접적으로 mean consistency에 의해 영향을 받는 환경을 만들어 실험하였다.
-* 두 종단 상태의 보상값은 치우쳐진 지수함수 분포들, $e^{-\lambda} (\lambda \geq 0)$과 $e^{\lambda+1.85} (\lamda \leq 1.85)$에서 나온다.
+* 두 종단 상태의 보상값은 치우쳐진 지수함수 분포들, <img src="/Statistics_and_Samples_in_Distributional_Reinforcement_Learning/tex/98ec99234320944e54a9b02946265678.svg?invert_in_darkmode&sanitize=true" align=middle width=79.0582419pt height=27.91243950000002pt/>과 <img src="/Statistics_and_Samples_in_Distributional_Reinforcement_Learning/tex/70f541467745d279d8c27b069416011b.svg?invert_in_darkmode&sanitize=true" align=middle width=109.28680949999998pt height=27.91243950000002pt/>에서 나온다.
 * 그림 7b에서 볼 수 있듯이 CDRL과 QDRL은 mean consistency의 부재로 인해 참 평균으로부터 떨어진 측정을 하는 것을 보여준다.
 
 <p align="center">
