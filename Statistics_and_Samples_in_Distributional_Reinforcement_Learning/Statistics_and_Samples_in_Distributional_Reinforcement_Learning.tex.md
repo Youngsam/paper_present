@@ -12,7 +12,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * **주장:** DRL 알고리즘은 통계적 추정량(estimator)을 imputation 전략이라고 하는 절차와 조합하는 것으로 볼수 있다.
 * **Imputation 전략** 이란 통계 추정치들과 정합적인 기대보상 분포를 생성하는 것을 가리킨다.
 
-![]("fig_1.PNG")
+![](fig_1.PNG)
 
 * 이 방법을 통해 다음과 같은 질문에 대답하기를 기대한다.
   1. 제시된 프레임워크를 통해 기존 DRL 방법들을 설명하고, 새로운 알고리즘을 도출해낼 수 있을까?
@@ -23,18 +23,13 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 ### 2.1 Bellman equations
 * 전통적인 벨만 등식과는 달리 DRL에서는 기대보상 값의 분포, $\eta(x,a)_\pi\in \mathcal{P}(\mathbb{R})$가 주어진다고 본다. 이것을 보다 분명하게 표현하면 수식 (3)과 같다.
 
-<p align="center">
-<img src="http://latex.codecogs.com/gif.latex?%5Clarge%20%5Cbegin%7Balign*%7D%20%5Ceta_%5Cpi%28x%2Ca%29%20%26%3D%20%28T%5E%5Cpi%20%5Ceta_%5Cpi%29%28x%2Ca%29%20%5C%5C%20%26%3D%20%5Cmathbb%7BE%7D_%5Cpi%20%5B%20%28f_%7BR_0%7D%2C%20%5Cgamma%29%5C%23%5Ceta_%5Cpi%28X_1%2C%20A_1%29%7CX_0%3Dx%2C%20A_0%3Da%5D%20%5Cquad%5Cquad%283%29%20%5Cend%7Balign*%7D">
-</p>
+
 
 * $f_{r,\gamma}:\mathbb{R}\rightarrow\mathbb{R}$ 는 $f_{x,\gamma}(x)=r+\gamma x$로 정의된다.
 * $g\#\mu \in \mathcal{P}(\mathbb{R})$ 는 $g\#\mu(A)=\mu(g^{-1}(A))$ 이다.
 * 수식 (3)은 사실 $\eta_\pi(x,a)$에 따른 분포를 갖는 $\mathbb{Z}^\pi(x,a)$로 해석하면, 아래의 분포적 벨만 등식과 같은 것이다.
 
 
-<p align="center">
-<img src="http://latex.codecogs.com/gif.latex?%5Clarge%20%5Cmathbb%7BZ%7D%5E%5Cpi%28x%2Ca%29%5Cdoteq%20%5Cmathbb%7BR%7D_0&plus;%5Cgamma%20%5Cmathbb%7BZ%7D%5E%5Cpi%28X_1%2CA_1%29">
-</p>
 
 * 하지만 분포공간은 거의 무한하므로 실제로는 모수적 접근을 통해 목표 분포를 근사하는 방법을 사용해왔다.
 
@@ -46,9 +41,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * $\eta(x,a)=\sum^{K}_{k=1}p_k(x,a)\delta_{z_k}$ 
 * 여기에 대한 벨만 업데이트는 아래와 같은 식을 가진다.
 
-<p align="center">
-<img src="http://latex.codecogs.com/gif.latex?%5Clarge%20%5Ceta%28x%2Ca%29%5Cleftarrow%20%28%5CPi_CT%5E%5Cpi%5Ceta%29%28x%2Ca%29">
-</p>
+
 
 * 위 식에서 $\Pi_C:\mathcal{P}(\mathbb{R})\rightarrow \mathcal{P}(\{z_1, \cdots , z_K\})$은 projection operator이다.
 
@@ -58,9 +51,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * 여기서 벨만 업데이트는 아톰 위치 $z_k (x,a)$를 목표 분포의 $T_k$-quantile로 이동시키면서 이루어진다.
 * 이 과정에서 사용되는 것이 quantile regression loss이다.
 
-<p align="center">
-<img src="http://latex.codecogs.com/gif.latex?%5Clarge%20QR%28q%3B%5Cmu%2C%5Ctau_k%29%3D%5Cmathbb%7BE%7D_%7B%5Cmathbb%7BZ%7D%5Csim%5Cmu%7D%5B%5B%5Ctau_k%5Cmathbf%7B1%7D_%7B%5Cmathbb%7BZ%7D%3Eq%7D&plus;%281-%5Ctau_k%29%5Cmathbf%7B1%7D_%7B%5Cmathbb%7BZ%7D%5Cleq%20q%7D%29%5D%7C%5Cmathbb%7BZ%7D-q%5D%20%5Cquad%5Cquad%20%284%29">
-</p>
+
 
 ## 3. The role of statistics in distributional RL
 * DRL을 모수화를 통해 기대보상 분포를 근사시키는 것으로 이해하는 것은 직관적 이해에 도움이 된다.
@@ -77,9 +68,6 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * 정의 3.3에 따라 다음의 expectile을 학습할 수 있다: $\tau_1, \cdots, \tau_K \in [0, 1]$
 * 그리고 수식 (5)를 통해 분포를 근사한다.
 
-<p align="center">
-<img src="http://latex.codecogs.com/gif.latex?%5Clarge%20z_k%28x%2Ca%29%5Cleftarrow%20%5Carg%5Cmin_%7Bq%5Cin%5Cmathbb%7BR%7D%7D%5Ctext%7BER%7D%28q%3B%5Cmu%2C%5Ctau_k%29%5Cquad%5Cquad%285%29">
-</p>
 
 * $\mu=(T^\pi \eta)(x,a)$는 목표 분포이다.
 * 하지만 이 알고리즘은 곧바로 적용할 수 없다. 왜냐하면 학습이 진행되면서 분포의 분산이 한 점으로 모이는 현상이 나타나기 때문이다. ([single Dirac](https://en.wikipedia.org/wiki/Dirac_delta_function))
@@ -93,9 +81,6 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * 만일 모든 각 다음 상태-행위 쌍 *(x',a')* 에 대한 총 보상기대 분포 추정치인 $\eta(x',a')$에 접근 가능하다면, 샘플과 통계치 간의 얽힘(conflation)을 피할 수 있다.
 * 이 연구에서 취하는 방법은 중간단계를 추가해서 각 상태-행위 쌍에 대한 측정된 통계치를 정합적인(consistent) 분포, $\eta(x',a')로 변환하는 것이다.
 
-<p align="center">
-<img src="http://latex.codecogs.com/gif.latex?%5Clarge%20%5Chat%7Bs%7D_k%28x%2Ca%29%5Cleftarrow%20s_k%28%28T%5E%5Cpi%20%5Ceta%29%28x%2Ca%29%29%20%5Cquad%5Cquad%20%286%29">
-</p>
 
 * 이를 정리하면 DRL의 일반 프레임워크가 된다. 이 접근의 요체는 (1) 학습할 통계치 집단을 선택하며, (2) imputation 전략을 선택하고, (3) 수식 (6)을 따라 분포를 업데이트하는 것이다. (알고리즘 1)
 
@@ -105,13 +90,9 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * Imputation 전략에 따라 필요한 expectile 값의 그룹을 얻어야 한다. 그리고 각 expectile에 대한 확률분포를 계산해야 한다.
 * 수식 (7)과 (8)에 따라 expectile regression loss를 최소화한다. 수식 (8)은 목표함수가 된다.
 
-<p align="center">
-<img src="http://latex.codecogs.com/gif.latex?%5Clarge%20%5Cnabla_q%20%5Ctext%7BER%7D%28q%3B%5Cmu%2C%5Ctau_i%29%7C_%7Bq%3D%5Cepsilon_i%7D%3D0%5C%3A%5C%3A%5Cforall%20i%5Cin%5BK%5D%20%5Cquad%5Cquad%20%287%29">
-</p>
 
-<p align="center">
-<img src="http://latex.codecogs.com/gif.latex?%5Clarge%20%5Csum_%7Bi%3D1%7D%5EK%28%5Cnabla_q%20%5Ctext%7BER%7D%28q%3B%5Cmu%2C%5Ctau_i%29%7C_%7Bq%3D%5Cepsilon_i%7D%29%5E2%20%5Cquad%5Cquad%288%29">
-</p>
+
+
 
 ### 3.4 Stochastic approximation
 * 실제적인 문제에서는 MDP의 복잡성 때문에 수식 (6)을 그대로 적용할 수 없고, 화률적 근사 방법을 써야 한다.
@@ -154,7 +135,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 
 * 그림 5에서 목표점과의 거리가 멀면 멀수록 오차가 증가하는 양상을 EDRL-Naive 조건에서 잘 볼 수 있다. 상대적으로 EDRL 조건을 그렇지 않으며 근사오차가 매우 작음을 볼 수 있다.
 
-<p align="center">$\arg\min_{q\in \mathbb{R}} \mathbb{E}_{Z\sim \mu} [(\tau \mathbf{1}_{Z>q}+(1-\tau)\mathbf{1}_{Z<q})H_\kappa(Z-q)]$ (11)</p>
+
 
 * 수식 (11)은 Huber-quantile loss를 사용하는 QDRL 방법이다. 여기에 imputation 전략을 응용하면 비슷한 효과를 볼 수 있다. 그림 6은 Huber-QDRL 방법에 대해 그런 전략을 사용한 경우와 그렇지 않은 경우를 비교한 결과이다.
 
