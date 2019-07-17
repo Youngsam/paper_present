@@ -12,9 +12,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * **주장:** DRL 알고리즘은 통계적 추정량(estimator)을 imputation 전략이라고 하는 절차와 조합하는 것으로 볼수 있다.
 * **Imputation 전략** 이란 통계 추정치들과 정합적인 기대보상 분포를 생성하는 것을 가리킨다.
 
-<p align="center">
-<img src="fig_1.PNG">
-</p>
+![]("fig_1.PNG")
 
 * 이 방법을 통해 다음과 같은 질문에 대답하기를 기대한다.
   1. 제시된 프레임워크를 통해 기존 DRL 방법들을 설명하고, 새로운 알고리즘을 도출해낼 수 있을까?
@@ -72,9 +70,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * QDRL의 영향을 받아, 본 연구에서는 보상기대 분포의 expectile을 학습하는 것을 목표로 삼는다.
 * Expectile은 퀀타일이 중위수를 일반화하는 것과 같은 양상으로 평균을 일반화한다.
 
-<p align="center">
-<img src="def_3_3.PNG">
-</p>
+![](def_3_3.PNG)
 
 * Expectile regression loss는 오차제곱의 비대칭 버전이다.
 * 1/2-expectile은 단순한 평균이다.
@@ -89,9 +85,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * 하지만 이 알고리즘은 곧바로 적용할 수 없다. 왜냐하면 학습이 진행되면서 분포의 분산이 한 점으로 모이는 현상이 나타나기 때문이다. ([single Dirac](https://en.wikipedia.org/wiki/Dirac_delta_function))
 * 그림 2는 이 현상을 잘 보여준다.
 
-<p align="center">
-<img src="fig_2.PNG">
-</p>
+![](fig_2.PNG)
 
 * 우리들이 보기에 이 문제의 본질은 우리가 통계치(statistics)와 샘플의 차이를 구별하지 못하는 데 있다. 수식 (5)의 $z_k(x,a)$는 통계치의 의미로 봐야 하며, 목표 분포의 파리미터는 샘플의 의미로 해석해야 한다.
 
@@ -105,9 +99,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 
 * 이를 정리하면 DRL의 일반 프레임워크가 된다. 이 접근의 요체는 (1) 학습할 통계치 집단을 선택하며, (2) imputation 전략을 선택하고, (3) 수식 (6)을 따라 분포를 업데이트하는 것이다. (알고리즘 1)
 
-<p align="center">
-<img src="algol_1.PNG">
-</p>
+![](algol_1.PNG)
 
 ### 3.3 Expectile distributional reinforcement learning
 * Imputation 전략에 따라 필요한 expectile 값의 그룹을 얻어야 한다. 그리고 각 expectile에 대한 확률분포를 계산해야 한다.
@@ -125,16 +117,12 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * 실제적인 문제에서는 MDP의 복잡성 때문에 수식 (6)을 그대로 적용할 수 없고, 화률적 근사 방법을 써야 한다.
 * 상태-행위 상에 대한 추정 통계치 손실함수는 수식 (9)를 통해 표현되며, 이를 이용한 알고리즘 2는 EDRL의 통계적 접근법이 된다.
 
-<p align="center">
-<img src="algol_2.PNG">
-</p>
+![](algol_2.PNG)
 
 ## 4. Analysing distributional RL
 ### 4.1 Bellman closedness
 
-<p align="center">
-<img src="def_4_1.PNG">
-</p>
+![](def_4_1.PNG)
 
 * 정의에 따르면, 평균과 분산과 같은 통계치는 벨만 닫힘성을 갖는다. (Sobel, 1982)
 * 만일 통계치 그룹이 벨만 닫힘성을 갖지 못한다면 보상기대 분포에 대한 통계치와 연관되는 벨만 등식이 성립되지 못한다.
@@ -153,22 +141,16 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * 비교조건은 imputation 전략을 사용하지 않는 naive EDRL 방법이다.
 * 실험 환경으로 다소 변형된 15-Chain 환경을 사용한다.(Fig. 3)
 
-<p align="center">
-<img src="fig_3.PNG">
-</p>
+![](fig_3.PNG)
 
 * 이 환경에서 각 상태는 0.95의 확률로 오른쪽으로 이동하거나 0.05의 확률로 $x_0$으로 갈 수 있다.
 * 가장 왼쪽의 상태에 가게되면 보상값은 -1을 받게 되고, 가장 우편의 상태는 +1을, 그 외에는 0의 보상값을 받게 된다. 보상값 감쇄율은 0.99를 사용했다.
 * 이 문제에서 각 상태에서 최적 policy(항상 우향인)인 정책의 기대보상 분포를 계산하였다. 이 환경에서 어떤 상태의 거리가 목표지점과 멀면 멀수록 그 상태에 대한 policy의 기대보상 분포는 multi-modal 형태를 띠게 된다.
 * EDRL 조건에서 SciPy 최적화 루틴을 사용하였고, {1,3,5,7,9} expectile을 학습시켰다. 러닝레이트는 0.05, 학습단계 수는 3만이었다.
 
-<p align="center">
-<img src="fig_4.PNG">
-</p>
+![](fig_4.PNG)
 
-<p align="center">
-<img src="fig_5.PNG">
-</p>
+![](fig_5.PNG)
 
 * 그림 5에서 목표점과의 거리가 멀면 멀수록 오차가 증가하는 양상을 EDRL-Naive 조건에서 잘 볼 수 있다. 상대적으로 EDRL 조건을 그렇지 않으며 근사오차가 매우 작음을 볼 수 있다.
 
@@ -176,18 +158,14 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 
 * 수식 (11)은 Huber-quantile loss를 사용하는 QDRL 방법이다. 여기에 imputation 전략을 응용하면 비슷한 효과를 볼 수 있다. 그림 6은 Huber-QDRL 방법에 대해 그런 전략을 사용한 경우와 그렇지 않은 경우를 비교한 결과이다.
 
-<p align="center">
-<img src="fig_6.PNG">
-</p>
+![](fig_6.PNG)
 
 ### 5.2 Tabular control
 * 그림 7a에서 제시된 간단한 5-상태 MDP 문제를 통해 policy가 직접적으로 mean consistency에 의해 영향을 받는 환경을 만들어 실험하였다.
 * 두 종단 상태의 보상값은 치우쳐진 지수함수 분포들, $e^{-\lambda} (\lambda \geq 0)$과 $e^{\lambda+1.85} (\lamda \leq 1.85)$에서 나온다.
 * 그림 7b에서 볼 수 있듯이 CDRL과 QDRL은 mean consistency의 부재로 인해 참 평균으로부터 떨어진 측정을 하는 것을 보여준다.
 
-<p align="center">
-<img src="fig_7.PNG">
-</p>
+![](fig_7.PNG)
 
 ### 5.3 Expectile regression DQN
 * 앞서 제시된 알고리즘 2의 EDRL 업데이트와 QR-DQN 아키텍처를 조합한 ER-DQN 모형을 아타리-57 게임 실험세팅에 이용하였다.
@@ -195,9 +173,7 @@ by [Rowland et al. (2019)](http://arxiv.org/abs/1902.08102)
 * 모든 조건은 랜덤 시드 3개에 대한 성능의 평균을 취하였다.
 * 실험에서 ER-DQN은 11개의 expectile로도 다른 조건들에 비해 좋은 성능을 보였다.
 
-<p align="center">
-<img src="fig_8.PNG">
-</p>
+![](fig_8.PNG)
 
 ## 6. Conclusion
 * 통계적 추정량과 imputation 전략에 따라 분포적 강화학습을 위한 통합적 프레임워크를 제안하였고, EDRL이란 구체적인 알고리즘을 제시하였다.
