@@ -31,30 +31,30 @@ approach may be used in an off-policy setting.
 
 ## Bacground
 * Q-learning 을 사용하는 이유는 off-policy 학습이 off-action-space 학습에 적합하기 때문이다.
-* For unrestricted action space <img src="/Growing_Action_Spaces/tex/7651ba0e8e29ee7537841a819041a172.svg?invert_in_darkmode&sanitize=true" align=middle width=13.12555859999999pt height=22.465723500000017pt/>, we define a set of N action spaces <img src="/Growing_Action_Spaces/tex/e34550097070f013c8dbd791bfc43aba.svg?invert_in_darkmode&sanitize=true" align=middle width=129.83986455pt height=22.831056599999986pt/>.
-* Each action space is a subset of the next: <img src="/Growing_Action_Spaces/tex/492024c31450967316e79a76caeb85f0.svg?invert_in_darkmode&sanitize=true" align=middle width=162.04986599999998pt height=22.465723500000017pt/>.
-* The optimal policy is <img src="/Growing_Action_Spaces/tex/dd21945be29fa377188b55fa84c312b2.svg?invert_in_darkmode&sanitize=true" align=middle width=51.26346719999999pt height=24.65753399999998pt/> and its corresponding value and action-value functions are <img src="/Growing_Action_Spaces/tex/51de1d4a393deaf6ce0d6c57d2090eb4.svg?invert_in_darkmode&sanitize=true" align=middle width=41.290032299999986pt height=24.65753399999998pt/> and <img src="/Growing_Action_Spaces/tex/a8d5aabf06a319596240b7a15f01adae.svg?invert_in_darkmode&sanitize=true" align=middle width=57.03846389999999pt height=24.65753399999998pt/>.
+* For unrestricted action space <img src="/GAS_Farquhar_2019/tex/7651ba0e8e29ee7537841a819041a172.svg?invert_in_darkmode&sanitize=true" align=middle width=13.12555859999999pt height=22.465723500000017pt/>, we define a set of N action spaces <img src="/GAS_Farquhar_2019/tex/e34550097070f013c8dbd791bfc43aba.svg?invert_in_darkmode&sanitize=true" align=middle width=129.83986455pt height=22.831056599999986pt/>.
+* Each action space is a subset of the next: <img src="/GAS_Farquhar_2019/tex/492024c31450967316e79a76caeb85f0.svg?invert_in_darkmode&sanitize=true" align=middle width=162.04986599999998pt height=22.465723500000017pt/>.
+* The optimal policy is <img src="/GAS_Farquhar_2019/tex/dd21945be29fa377188b55fa84c312b2.svg?invert_in_darkmode&sanitize=true" align=middle width=51.26346719999999pt height=24.65753399999998pt/> and its corresponding value and action-value functions are <img src="/GAS_Farquhar_2019/tex/51de1d4a393deaf6ce0d6c57d2090eb4.svg?invert_in_darkmode&sanitize=true" align=middle width=41.290032299999986pt height=24.65753399999998pt/> and <img src="/GAS_Farquhar_2019/tex/a8d5aabf06a319596240b7a15f01adae.svg?invert_in_darkmode&sanitize=true" align=middle width=57.03846389999999pt height=24.65753399999998pt/>.
 
 ## Curriculum learning with growing action spaces
 ### Off-action-space learning
-* A value function for an action space <img src="/Growing_Action_Spaces/tex/05dee38357583dc8dee9d299cfe0911e.svg?invert_in_darkmode&sanitize=true" align=middle width=17.349347399999992pt height=22.465723500000017pt/> may be updated with transitions using actions drawn from its own action space, or any more restricted action spaces.
+* A value function for an action space <img src="/GAS_Farquhar_2019/tex/05dee38357583dc8dee9d299cfe0911e.svg?invert_in_darkmode&sanitize=true" align=middle width=17.349347399999992pt height=22.465723500000017pt/> may be updated with transitions using actions drawn from its own action space, or any more restricted action spaces.
 * The restricted transitions simply form a subset of the data required to learn the value functions of the less restricted action spaces.
-* To exploit this, we simultaneously learn an estimated optimal value function <img src="/Growing_Action_Spaces/tex/a8d5aabf06a319596240b7a15f01adae.svg?invert_in_darkmode&sanitize=true" align=middle width=57.03846389999999pt height=24.65753399999998pt/> for each action space <img src="/Growing_Action_Spaces/tex/05dee38357583dc8dee9d299cfe0911e.svg?invert_in_darkmode&sanitize=true" align=middle width=17.349347399999992pt height=22.465723500000017pt/>.
+* To exploit this, we simultaneously learn an estimated optimal value function <img src="/GAS_Farquhar_2019/tex/a8d5aabf06a319596240b7a15f01adae.svg?invert_in_darkmode&sanitize=true" align=middle width=57.03846389999999pt height=24.65753399999998pt/> for each action space <img src="/GAS_Farquhar_2019/tex/05dee38357583dc8dee9d299cfe0911e.svg?invert_in_darkmode&sanitize=true" align=middle width=17.349347399999992pt height=22.465723500000017pt/>.
 
 ## Value estimates
 * Equation 2
-<p align="center"><img src="/Growing_Action_Spaces/tex/85829ac252973c1d83091da9dfa87baf.svg?invert_in_darkmode&sanitize=true" align=middle width=172.1075367pt height=18.630051pt/></p>.
+<p align="center"><img src="/GAS_Farquhar_2019/tex/85829ac252973c1d83091da9dfa87baf.svg?invert_in_darkmode&sanitize=true" align=middle width=172.1075367pt height=18.630051pt/></p>.
 
 * Equation 3: leveraging hierachical structure
-<p align="center"><img src="/Growing_Action_Spaces/tex/fd974154c736ee6e24a382d676ff4581.svg?invert_in_darkmode&sanitize=true" align=middle width=290.35697295pt height=21.0044868pt/></p>
+<p align="center"><img src="/GAS_Farquhar_2019/tex/fd974154c736ee6e24a382d676ff4581.svg?invert_in_darkmode&sanitize=true" align=middle width=290.35697295pt height=21.0044868pt/></p>
 
 * Equation 4: modified Bellman optimality equation
-<p align="center"><img src="/Growing_Action_Spaces/tex/93a796270eb9e9beacfdf4bf862a1fa8.svg?invert_in_darkmode&sanitize=true" align=middle width=308.59005705pt height=26.044698899999997pt/></p>
+<p align="center"><img src="/GAS_Farquhar_2019/tex/93a796270eb9e9beacfdf4bf862a1fa8.svg?invert_in_darkmode&sanitize=true" align=middle width=308.59005705pt height=26.044698899999997pt/></p>
 
-* We expect that policies with low <img src="/Growing_Action_Spaces/tex/2f2322dff5bde89c37bcae4116fe20a8.svg?invert_in_darkmode&sanitize=true" align=middle width=5.2283516999999895pt height=22.831056599999986pt/> are easier to learn, and that therefore the corresponding <img src="/Growing_Action_Spaces/tex/257f0af3ee2a6f2af0b85149afc2c1df.svg?invert_in_darkmode&sanitize=true" align=middle width=19.73061914999999pt height=31.141535699999984pt/> is more accurate earlier in training.
+* We expect that policies with low <img src="/GAS_Farquhar_2019/tex/2f2322dff5bde89c37bcae4116fe20a8.svg?invert_in_darkmode&sanitize=true" align=middle width=5.2283516999999895pt height=22.831056599999986pt/> are easier to learn, and that therefore the corresponding <img src="/GAS_Farquhar_2019/tex/257f0af3ee2a6f2af0b85149afc2c1df.svg?invert_in_darkmode&sanitize=true" align=middle width=19.73061914999999pt height=31.141535699999984pt/> is more accurate earlier in training.
 
 ## Representation
-* By sharing parameters between the function approximators of each <img src="/Growing_Action_Spaces/tex/b9b07e8992331bd900e5963ee3774aca.svg?invert_in_darkmode&sanitize=true" align=middle width=17.21921354999999pt height=22.465723500000017pt/>, we can learn a joint state representation.
+* By sharing parameters between the function approximators of each <img src="/GAS_Farquhar_2019/tex/b9b07e8992331bd900e5963ee3774aca.svg?invert_in_darkmode&sanitize=true" align=middle width=17.21921354999999pt height=22.465723500000017pt/>, we can learn a joint state representation.
 * PBT 대신 단순한 linear scheduling을 활용했다.
 
 ## Growing action spaces for multi-agent control
@@ -95,7 +95,7 @@ each further level, every group is split once again into k smaller groups
 * The policies learned by GAS exhibit good tactics.
 * This ablation performs slightly, or considerably, worse in each scenario.
 * The choice of target is less important: performing a max over coarser action spaces to construct the target as described in Section 4.2 does not improve learning speed as intended.
-* Higher <img src="/Growing_Action_Spaces/tex/2f2322dff5bde89c37bcae4116fe20a8.svg?invert_in_darkmode&sanitize=true" align=middle width=5.2283516999999895pt height=22.831056599999986pt/> slightly degraded the asymptotic performance.
+* Higher <img src="/GAS_Farquhar_2019/tex/2f2322dff5bde89c37bcae4116fe20a8.svg?invert_in_darkmode&sanitize=true" align=middle width=5.2283516999999895pt height=22.831056599999986pt/> slightly degraded the asymptotic performance.
 
 >One potential reason is that it decreases the average group size, pushing
 against the limits of the spatial resolution that may be captured by our CNN architecture. Higher *l*

@@ -40,7 +40,7 @@ by [Dulac-Arnold et al., (2019)](http://arxiv.org/abs/1904.12901)
   * Importance sampling [(Precup et al., 2000)](https://dl.acm.org/citation.cfm?id=645529.658134)
   * Doubly-robust estimators는 behavior policy와 학습중인 policy를 같이 조합하고 양쪽 환경으로부터 evaluation을 수행한다. [(Dudik et al., 2011](https://arxiv.org/abs/1103.4601); [Jiang and Li, 2015)](https://arxiv.org/abs/1511.03722)
   * Magic (Thomas & Brunskill, 2016), More robust doubly robust (Farajtabar et al., 2018)
-* 최초정책, <img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/eacf292eaafd7cb895d33618d375d55d.svg?invert_in_darkmode&sanitize=true" align=middle width=16.51263074999999pt height=14.15524440000002pt/>는 시스템 기획자에 의해 결정되는 경우가 많고, 시스템이 제공해야 할 최소한의 성능을 그 policy가 만족시켜야 한다.
+* 최초정책, <img src="/CRWRL_Dulac-Arnold_2019/tex/eacf292eaafd7cb895d33618d375d55d.svg?invert_in_darkmode&sanitize=true" align=middle width=16.51263074999999pt height=14.15524440000002pt/>는 시스템 기획자에 의해 결정되는 경우가 많고, 시스템이 제공해야 할 최소한의 성능을 그 policy가 만족시켜야 한다.
 * 따라서 새로운 학습 알고리즘을 평가하고자 하는데 있어 중요한 지표가 바로 **warm-start performance**이며, 이 지표는 주어진 behavior policy의 경험 데이터를 이용해 최초로 얻어진다.
 * 여러 배치 사이즈의 데이터와 다양한 성격의 behavior policies에 대한 warm-start performance 측정은 부족한 데이터, sub-optimal, overfit 한 상황에서도 유망한 초기 policy를 찾는데 도움을 줄 수 있다.
 ### 2.2. Learning on the Real System from Limited Samples
@@ -53,7 +53,7 @@ by [Dulac-Arnold et al., (2019)](http://arxiv.org/abs/1904.12901)
   * Expert demonstration based methods
   * Model-based deep RL methods (Hafner et al., 2018; Chua et al., 2018)
 * 데이터 효율성을 측정하는데 적합한 방법은 어느 정도의 성능을 얻는데 필요한 데이터 양을 보는 것이다.
-<img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/3ff72fd81ca95399eb0590fc16645e86.svg?invert_in_darkmode&sanitize=true" align=middle width=312.1176168pt height=27.91243950000002pt/>  (2)
+<img src="/CRWRL_Dulac-Arnold_2019/tex/3ff72fd81ca95399eb0590fc16645e86.svg?invert_in_darkmode&sanitize=true" align=middle width=312.1176168pt height=27.91243950000002pt/>  (2)
 ### 2.3. High-Dimensional Continuous State and Action Spaces
 * 너무나 큰 상태 혹은 행위 공간의 문제는 실제적인 문제에선 흔히 나타난다. (예, 추천 시스템)
 * Nearest neighbor 탐색 기반 접근 (Dulac-Arnold et al., 2015)
@@ -63,21 +63,21 @@ by [Dulac-Arnold et al., (2019)](http://arxiv.org/abs/1904.12901)
 * 실제 시스템은 자기 자신을 보호하기 위해 만족해야 하는 조건 혹은 제약들이 있는 경우가 많다.(예, 최저 배터리 용량)
 * Constrained MDP(Altman, 1999) 모형에서는 이러한 안전 제약들이 자연스럽게 반영된다.(Dalal et al., 2018; Achiam et al., 2017)
 * Constrained MDP는 다음과 같이 정의된 재약된 최적화 문제를 갖는다.
-<img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/afe4b50c94838b2e2d96168d3c1dcda2.svg?invert_in_darkmode&sanitize=true" align=middle width=364.10099549999995pt height=27.91244280000001pt/> &nbsp; 여기서 <img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/829fda96bc6aa290b2b4a3d3fb138953.svg?invert_in_darkmode&sanitize=true" align=middle width=43.75810229999999pt height=27.91243950000002pt/>는 제약 <img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/63bb9849783d01d91403bc9a5fea12a2.svg?invert_in_darkmode&sanitize=true" align=middle width=9.075367949999992pt height=22.831056599999986pt/>에 대해 어떤 정첵 <img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/f30fdded685c83b0e7b446aa9c9aa120.svg?invert_in_darkmode&sanitize=true" align=middle width=9.96010619999999pt height=14.15524440000002pt/>의 누적된 비용을 가리킨다. 상태나 행위에 대한 세세한 제약은 <img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/5539f1481ecc528a9f51158593cbc804.svg?invert_in_darkmode&sanitize=true" align=middle width=51.68769869999999pt height=24.65753399999998pt/>와 같이 표기된다.
+<img src="/CRWRL_Dulac-Arnold_2019/tex/afe4b50c94838b2e2d96168d3c1dcda2.svg?invert_in_darkmode&sanitize=true" align=middle width=364.10099549999995pt height=27.91244280000001pt/> &nbsp; 여기서 <img src="/CRWRL_Dulac-Arnold_2019/tex/829fda96bc6aa290b2b4a3d3fb138953.svg?invert_in_darkmode&sanitize=true" align=middle width=43.75810229999999pt height=27.91243950000002pt/>는 제약 <img src="/CRWRL_Dulac-Arnold_2019/tex/63bb9849783d01d91403bc9a5fea12a2.svg?invert_in_darkmode&sanitize=true" align=middle width=9.075367949999992pt height=22.831056599999986pt/>에 대해 어떤 정첵 <img src="/CRWRL_Dulac-Arnold_2019/tex/f30fdded685c83b0e7b446aa9c9aa120.svg?invert_in_darkmode&sanitize=true" align=middle width=9.96010619999999pt height=14.15524440000002pt/>의 누적된 비용을 가리킨다. 상태나 행위에 대한 세세한 제약은 <img src="/CRWRL_Dulac-Arnold_2019/tex/5539f1481ecc528a9f51158593cbc804.svg?invert_in_darkmode&sanitize=true" align=middle width=51.68769869999999pt height=24.65753399999998pt/>와 같이 표기된다.
 * 실제 시스템에서 안전과 연관된 사건은 시스템 로그에서 매우 출현이 적다는 것이 강화학습에는 큰 문제가 된다. 많은 경우에 이 안전제약들은 시스템 매니저로부터 제대로 기술되지도 않는다.
 * 하나의 대안은 budgeted MDPs (Boutilier & Lu, 2016;  Carrara et al., 2018)로 CMDP와 달리 여기서는 제약의 수준이 미리 고정되어 있다고 가정하지 않는다. 대신 policy가 제약수준의 함수로서 학습된다. 사용자는 보상 기대값과 제약의 수준 간의 trade-off를 살펴보고 주어진 데이터에 비춰 가장 알맞은 제약수준을 선택할 수 있다.
 * 안전 제약에 초점을 맞춘 강화학습 연구들이 최근 등장하고 있는데, 학습 중에 안전성을 지키는 policy를 학습하고자 하는 접근들은 신경망에 safety layer를 추가함으로써 에이전트로 하여금 안전성 위반을 전혀 저지르지 않게 학습하게 한다. (Dalal et al., 2018; Pham et al., 2017)
 * 또 다른 접근은 에이전트가 안전성 위반을 저지르는 것을 허용하지만 학습된 policy는 안전제약들을 따르도록 유도하는 전략을 쓴다. (Achiam et al., 2017;Tessler et al., 2018; Bohez et al., 2019)
 * Safe policy learning with Lyapunov functions (Chow et al., 2018), Safe exploration strategies (Turchetta et al., 2016; Wachi et al., 2018), Probabilistic Goal MDP (Mankowitz et al., 2016)
 * 측정에 도움이 되는 지표 (Dalal et al., 2018)
-<p align="center"><img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/7adb257f0acbd1daa7beeb10adc551ae.svg?invert_in_darkmode&sanitize=true" align=middle width=289.5751881pt height=47.806078649999996pt/></p>
+<p align="center"><img src="/CRWRL_Dulac-Arnold_2019/tex/7adb257f0acbd1daa7beeb10adc551ae.svg?invert_in_darkmode&sanitize=true" align=middle width=289.5751881pt height=47.806078649999996pt/></p>
 
 ### 2.5. Partial Observability and Non-Stationarity
-* 부분 관찰성 문제는 강화학습에서는 흔히 POMDP 프레임워크에 의해 모형화되며, 관찰 상태 <img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode&sanitize=true" align=middle width=9.39498779999999pt height=14.15524440000002pt/>에 대한 관찰함수 <img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/b558452411fd8a134d93424e86ac5eb8.svg?invert_in_darkmode&sanitize=true" align=middle width=47.44755014999999pt height=24.65753399999998pt/>가 MDP에 추가된다.
+* 부분 관찰성 문제는 강화학습에서는 흔히 POMDP 프레임워크에 의해 모형화되며, 관찰 상태 <img src="/CRWRL_Dulac-Arnold_2019/tex/332cc365a4987aacce0ead01b8bdcc0b.svg?invert_in_darkmode&sanitize=true" align=middle width=9.39498779999999pt height=14.15524440000002pt/>에 대한 관찰함수 <img src="/CRWRL_Dulac-Arnold_2019/tex/b558452411fd8a134d93424e86ac5eb8.svg?invert_in_darkmode&sanitize=true" align=middle width=47.44755014999999pt height=24.65753399999998pt/>가 MDP에 추가된다.
 * 부분 관찰성 문제를 다루는 한 가지 방법은 메모리 버퍼를 통해 에이전트의 history를 이용하는 것이며, 다른 방법은 에이전트에게 RNN을 부여해 히든 상태를 스스로 추적하게 하는 것으로 메모리 버퍼 없이도 좋은 성능을 보여주었다. (Hausknecht & Stone, 2015)
 * 이미 학습된 policy를 실제 문제의 환경에 적용할 때, 상태정보가 부정확하거나 행동이 지연되거 하는 등의 노이즈가 심한 환경에서도 강건하게 작동하는 강화학습 프레임워크를 Robust MDP라고 부른다.
 * Robust MDP에서 환경은 일반적인 MDP에서와는 달리 에이전트가 장기이익을 최소화하도록 상태이행을 제공한다. 이런 환경에서 학습된 에이전트의 policy는 worst case value function을 최대화하도록 학습하게 된다.
-<p align="center"><img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/89cd45b7db7c0f0eb70b03d6bac03a14.svg?invert_in_darkmode&sanitize=true" align=middle width=228.06442725pt height=44.69878215pt/></p>
+<p align="center"><img src="/CRWRL_Dulac-Arnold_2019/tex/89cd45b7db7c0f0eb70b03d6bac03a14.svg?invert_in_darkmode&sanitize=true" align=middle width=228.06442725pt height=44.69878215pt/></p>
 
 * 최근 연구들에서 Robust MDP를 통해 학습된 policy는 에이전트가 방해받는 악조건 속에서도 강건한 policy를 제공한다는 것이 드러났으며 (Tamar et al., 2014; Mankowitz et al., 2018;Shashua & Mannor, 2017), 보다 이런 악조건을 경감시킨 soft-robust 해결책도 제시된 바 있다. (Derman et al., 2018).
 * Domain randomization과 system identification을 이용한 연구도 비슷한 효과를 보고한다. (Peng et al., 2018; Finn et al., 2017)
@@ -88,8 +88,8 @@ by [Dulac-Arnold et al., (2019)](http://arxiv.org/abs/1904.12901)
 * 이런 목적에 부합하는 지표가 바로 CVaR(Conditional Value at Risk) objective 로서, 이 측정치는 한 개의 보상 기대값이 아니라 특정 그룹별 보상 값의 분포를 이용한다. (Tamar et al., 2015b) 이는 policy의 worst-case performance를 향상시키는 것으로 나타났다.
 * Distributional DQN도 보상값들의 분포 정보를 활용하며, 이런 측면에서 CVaR을 적용하고 있다고 볼 수 있다. (Bellemare et al., 2017)
 * Inverse 강화학습과 같이 시범 데이터를 통해 보상함수를 복원하는 방법도 생각해볼 수 있으며, 주어진 보상함수를 새로운 환경에서 학습 중에 유추하는 방법도 시도할 수 있다.
-* 기대 보상값에 대한 단순한 다목적 분석법은 보상값의 부분요소들의 선형조합이, <img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/ec314747044a7c3c5cd6af8cb853eb97.svg?invert_in_darkmode&sanitize=true" align=middle width=178.20888359999998pt height=32.256008400000006pt/> 와 같다고 할때 수식 (6)과 같이 기대 보상값들을 벡터요소로 갖는 다목적 보상함수 벡터를 생각해볼 수 있다.
-<p align="center"><img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/d4269f997f5069b5622334c5b09114ac.svg?invert_in_darkmode&sanitize=true" align=middle width=329.62434285pt height=47.988758399999995pt/></p>
+* 기대 보상값에 대한 단순한 다목적 분석법은 보상값의 부분요소들의 선형조합이, <img src="/CRWRL_Dulac-Arnold_2019/tex/ec314747044a7c3c5cd6af8cb853eb97.svg?invert_in_darkmode&sanitize=true" align=middle width=178.20888359999998pt height=32.256008400000006pt/> 와 같다고 할때 수식 (6)과 같이 기대 보상값들을 벡터요소로 갖는 다목적 보상함수 벡터를 생각해볼 수 있다.
+<p align="center"><img src="/CRWRL_Dulac-Arnold_2019/tex/d4269f997f5069b5622334c5b09114ac.svg?invert_in_darkmode&sanitize=true" align=middle width=329.62434285pt height=47.988758399999995pt/></p>
 
 * 각기 다른 요인들(사용자, 테스크 등)의 분포들을 반영한 성능을 평가하기 위해서, 각 요인들의 알고리즘 성능을 독립적으로 평가하는 것이 필요하다. 아니면 CVaR return을 분석하거나 드물지만 최악인 보상 출현을 최소화하는지를 평가한다거나, '위험회피' 혹은 '위험선호'와 같은 행위선택을 에이전트가 하는지를 보는 평가방법도 존재한다.
 
@@ -114,7 +114,7 @@ by [Dulac-Arnold et al., (2019)](http://arxiv.org/abs/1904.12901)
 ![](humanoid.PNG "Humanoid Environment")
 
 * 이 환경은 지금까지 열거했던 9가지 문제들을 구체적으로 예시하고 각 문제마다 적절한 평가방법을 제시하는 것을 보여주기 위함이다.
-* Table 1. Safety constraints for the humanoid environment (variables: <img src="/Challenges_of_Real-world_Reinforcement_Learning_2019/tex/de7d677f3f827c7e407a5151340ea424.svg?invert_in_darkmode&sanitize=true" align=middle width=45.04949129999999pt height=22.831056599999986pt/>)
+* Table 1. Safety constraints for the humanoid environment (variables: <img src="/CRWRL_Dulac-Arnold_2019/tex/de7d677f3f827c7e407a5151340ea424.svg?invert_in_darkmode&sanitize=true" align=middle width=45.04949129999999pt height=22.831056599999986pt/>)
 
    Type  | Constraint 
   ------ | ----------  

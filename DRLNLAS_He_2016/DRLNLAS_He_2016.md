@@ -18,7 +18,7 @@ by [He et al. (2016)](http://arxiv.org/abs/1511.04636)
 
 ## 2. Deep Reinforcement Relevance Network
 ### 2.1 Text Games and Q-learning
-* 한 텍스트 게임에서는 각 단계마다 state-text와 action-text가 주어진다. 에이전트는 양쪽 측면에서 이 두 가지 텍스트를 이해하고 현재 상황의 컨텍스트 <img src="/Deep_Reinforcement_Learning_with_Natural_Language_Action_Space/tex/1f1c28e0a1b1708c6889fb006c886784.svg?invert_in_darkmode&sanitize=true" align=middle width=12.67127234999999pt height=14.15524440000002pt/>에 대한 **적절성(relevance)** 을 계산하여야 한다.
+* 한 텍스트 게임에서는 각 단계마다 state-text와 action-text가 주어진다. 에이전트는 양쪽 측면에서 이 두 가지 텍스트를 이해하고 현재 상황의 컨텍스트 <img src="/DRLNLAS_He_2016/tex/1f1c28e0a1b1708c6889fb006c886784.svg?invert_in_darkmode&sanitize=true" align=middle width=12.67127234999999pt height=14.15524440000002pt/>에 대한 **적절성(relevance)** 을 계산하여야 한다.
 * 물론 여기서 적절하다는 것은 장기적 보상을 최대화한다는 목적에 대해서 적절하다는 것을 의미한다.
 * Q-learning 알고리즘이 사용되어, 에이전트의 controller, 즉 policy는 현재 사용 가능한(feasible) 행위들에 대한 relevance 값들을 계산하고 이에 대한 Soft-max 함수 결과값에 의해 특정 행위(action)를 선택한다.
 
@@ -30,18 +30,18 @@ by [He et al. (2016)](http://arxiv.org/abs/1511.04636)
 ![](fig_1_small.PNG)
 
 ### 2.3 DRRN architecture: Forward activation
-* 어떤 주어진 상태-행위 텍스트 쌍, <img src="/Deep_Reinforcement_Learning_with_Natural_Language_Action_Space/tex/bf85ad2d27199cfb01740dd10d5cb0fe.svg?invert_in_darkmode&sanitize=true" align=middle width=48.06132539999999pt height=27.15900329999998pt/>에 대해 DRRN은 크게 두 단계의 과정을 통해 <img src="/Deep_Reinforcement_Learning_with_Natural_Language_Action_Space/tex/4a710a91193a0e3864e78108030bbeee.svg?invert_in_darkmode&sanitize=true" align=middle width=61.05675014999999pt height=27.15900329999998pt/>를 측정한다.
+* 어떤 주어진 상태-행위 텍스트 쌍, <img src="/DRLNLAS_He_2016/tex/bf85ad2d27199cfb01740dd10d5cb0fe.svg?invert_in_darkmode&sanitize=true" align=middle width=48.06132539999999pt height=27.15900329999998pt/>에 대해 DRRN은 크게 두 단계의 과정을 통해 <img src="/DRLNLAS_He_2016/tex/4a710a91193a0e3864e78108030bbeee.svg?invert_in_darkmode&sanitize=true" align=middle width=61.05675014999999pt height=27.15900329999998pt/>를 측정한다.
 * 첫 번째 단계에서는 상태와 행위 각각에 대한 신경망을 통해 각 임베딩 벡터를 계산한다.
-  * 상태 벡터:<img src="/Deep_Reinforcement_Learning_with_Natural_Language_Action_Space/tex/771702443a40a14eabe7643749461ea9.svg?invert_in_darkmode&sanitize=true" align=middle width=217.23008504999993pt height=24.65753399999998pt/>
-  * 행위 벡터: <img src="/Deep_Reinforcement_Learning_with_Natural_Language_Action_Space/tex/0b2b7269d5c651d6c4715fb59d46bd14.svg?invert_in_darkmode&sanitize=true" align=middle width=220.93413374999997pt height=27.15900329999998pt/>
+  * 상태 벡터:<img src="/DRLNLAS_He_2016/tex/771702443a40a14eabe7643749461ea9.svg?invert_in_darkmode&sanitize=true" align=middle width=217.23008504999993pt height=24.65753399999998pt/>
+  * 행위 벡터: <img src="/DRLNLAS_He_2016/tex/0b2b7269d5c651d6c4715fb59d46bd14.svg?invert_in_darkmode&sanitize=true" align=middle width=220.93413374999997pt height=27.15900329999998pt/>
   * *h* 함수는 위에서와 같이 l 번째 히든 레이어와 상태 혹은 행위에 대해서 정의되며, 함수 *f* 는 비선형 활성함수(tanh)를 가리킨다. 그리고 *i* 는 행위에 대한 인덱스이다.
-* 두 번째 단계에서는 상호작용 함수를 통해 <img src="/Deep_Reinforcement_Learning_with_Natural_Language_Action_Space/tex/4a710a91193a0e3864e78108030bbeee.svg?invert_in_darkmode&sanitize=true" align=middle width=61.05675014999999pt height=27.15900329999998pt/>를 얻는다. 이 단계에 이르면, 주어진 상태와 특정 행위 텍스트에 대한 최적의 행위를 구할 수 있게 된다.
-  * Optimal action <img src="/Deep_Reinforcement_Learning_with_Natural_Language_Action_Space/tex/503d2ed9fb7d86205eddf25f6e50f64c.svg?invert_in_darkmode&sanitize=true" align=middle width=150.99342224999998pt height=27.15900329999998pt/>
-  * <img src="/Deep_Reinforcement_Learning_with_Natural_Language_Action_Space/tex/4e367f894f2d6dbea6cd2239a352510b.svg?invert_in_darkmode&sanitize=true" align=middle width=185.25046154999998pt height=27.15900329999998pt/>
+* 두 번째 단계에서는 상호작용 함수를 통해 <img src="/DRLNLAS_He_2016/tex/4a710a91193a0e3864e78108030bbeee.svg?invert_in_darkmode&sanitize=true" align=middle width=61.05675014999999pt height=27.15900329999998pt/>를 얻는다. 이 단계에 이르면, 주어진 상태와 특정 행위 텍스트에 대한 최적의 행위를 구할 수 있게 된다.
+  * Optimal action <img src="/DRLNLAS_He_2016/tex/503d2ed9fb7d86205eddf25f6e50f64c.svg?invert_in_darkmode&sanitize=true" align=middle width=150.99342224999998pt height=27.15900329999998pt/>
+  * <img src="/DRLNLAS_He_2016/tex/4e367f894f2d6dbea6cd2239a352510b.svg?invert_in_darkmode&sanitize=true" align=middle width=185.25046154999998pt height=27.15900329999998pt/>
   * 상호작용 함수 *g* 는 두 항의 (1) inner product, (2) bi-linear operation, 혹은 (3) nonlinear function 일 수 있다.
 
 ### 2.4 Learning the DRRN: Back propagation
-* Mhin et al. (2015)와 마찬가지로 experience-replay (Lin, 1993)를 사용하여 replay bvffer로부터 랜덤하게 상태이행 데이터 <img src="/Deep_Reinforcement_Learning_with_Natural_Language_Action_Space/tex/3274be859239ecbdcfd690775768fe6d.svg?invert_in_darkmode&sanitize=true" align=middle width=115.21520339999998pt height=24.65753399999998pt/>를 뽑아서 예측오차를 계산하고 이를 모형학습에 이용하였다. (알고리즘 1)
+* Mhin et al. (2015)와 마찬가지로 experience-replay (Lin, 1993)를 사용하여 replay bvffer로부터 랜덤하게 상태이행 데이터 <img src="/DRLNLAS_He_2016/tex/3274be859239ecbdcfd690775768fe6d.svg?invert_in_darkmode&sanitize=true" align=middle width=115.21520339999998pt height=24.65753399999998pt/>를 뽑아서 예측오차를 계산하고 이를 모형학습에 이용하였다. (알고리즘 1)
 * 주의할 것은 학습시에 모든 행위들은 역전파 알고리즘ㅇ르 통해 학습된 동일한 모형 파라미터를 공유한다는 것이다. 보상신호를 통해 상태와 행위는 유사한 방향의 벡터의 형태로 만들어진다. 이 과정은 그림 2에서 잘 보여진다.
 ![](fig_2.PNG)
 
