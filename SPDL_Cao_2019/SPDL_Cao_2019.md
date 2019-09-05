@@ -44,9 +44,14 @@ by [Cao et al (2019)](https://www.aclweb.org/anthology/P19-1007)
 </p>
 
 * 디코더는 attention 메커니즘을 갖춘 uni-LSTM 모형으로 t-th time step의 히든 벡터는 <img src="/SPDL_Cao_2019/tex/be185805f68ef6a1d6119e8f87a8e6e1.svg?invert_in_darkmode&sanitize=true" align=middle width=184.5437055pt height=24.65753399999998pt/>를 통해 획득된다. 참고로 <img src="/SPDL_Cao_2019/tex/e04252fea89d502cdefeb57360fb0ef4.svg?invert_in_darkmode&sanitize=true" align=middle width=27.14620094999999pt height=24.65753399999998pt/>은 논리적 쿼리를 위한 임베딩 함수를 가리킨다.
+
 * 인코더의 i 번째 단계와 디코더의 현재 시점 t 에 대한 attention weight는 다음과 같이 정의된다.
-<p align="center"><img src="/SPDL_Cao_2019/tex/4868a0aa87ec916373c9bec228420c54.svg?invert_in_darkmode&sanitize=true" align=middle width=136.26502395pt height=46.41944339999999pt/></p>
-<p align="center"><img src="/SPDL_Cao_2019/tex/2a756f3b874f635057fd932953d3a43a.svg?invert_in_darkmode&sanitize=true" align=middle width=301.68585314999996pt height=18.7598829pt/></p>
+  <p align="center"><img src="/SPDL_Cao_2019/tex/3e0588844e5fd09416e2592529f3a5f5.svg?invert_in_darkmode&sanitize=true" align=middle width=136.26502395pt height=46.41944339999999pt/></p>
+
+  <p align="center"><img src="/SPDL_Cao_2019/tex/771b526c33d02be7e2c6ce5c0a69558d.svg?invert_in_darkmode&sanitize=true" align=middle width=301.68585314999996pt height=18.7598829pt/></p>
+
+  
+
 * 이와 같은 과정을 거쳐 어휘의 확률분포 <img src="/SPDL_Cao_2019/tex/27f9de68459efdefb3f932750783d3c4.svg?invert_in_darkmode&sanitize=true" align=middle width=104.58519389999998pt height=24.65753399999998pt/> 는 다음과 같이 결정된다.
 
 <p align=center>
