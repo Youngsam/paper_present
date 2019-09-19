@@ -105,7 +105,7 @@ Open-world queries 에 대해 본 연구의 접근법은 두 단계로 이루어
 
 ## 4. Experiments
 ### 4.1 Evaluation Setup
-* 실험을 위해 **sinulated user** 가 구축되었음
+* 실험을 위해 **simulated user** 가 구축되었음
 * 시스템 성능을 측정하기 위해 streaming query dataset을 이용하였다.
 * 본격적인 학습에 앞서 initial training phase 가 주어진다.
   * CILK는 initial knowledge base가 주어진다고 가정되었다.
