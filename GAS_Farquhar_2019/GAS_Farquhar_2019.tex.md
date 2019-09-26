@@ -29,7 +29,7 @@ exploit the properties of the optimal value functions to induce additional struc
 We further use these properties to construct a scheme for off-action-space learning which means our
 approach may be used in an off-policy setting.
 
-## Bacground
+## Background
 * Q-learning 을 사용하는 이유는 off-policy 학습이 off-action-space 학습에 적합하기 때문이다.
 * For unrestricted action space $\mathcal{A}$, we define a set of N action spaces $A_l, l \in {0, ..., N-1}$.
 * Each action space is a subset of the next: $\mathcal{A}_0 \subset \mathcal{A}_1 \subset ... \subset \mathcal{A}_{N-1}$.
